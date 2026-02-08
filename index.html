@@ -13,7 +13,10 @@
         body { 
             font-family: 'Nunito', sans-serif; 
             background-color: #ffffff;
-            height: 100vh;
+           height: 100%;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
         }
 
         /* Desktop specific scaling - Matches your original request */
@@ -119,14 +122,11 @@
     }
     
     /* Container height fix for Desktop/Mobile */
-    .cards-container-height {
-        max-height: 400px; /* Aap is height ko kam ya zyada kar sakte hain */
-        
-    }
+   
     </style>
 </head>
 <body>
-    <section class="flex flex-col md:h-screen hidden sm:block" x-data="{ activeTab: 'corsi' }">
+    <section class="hidden sm:flex flex-col h-screen max-h-screen w-full overflow-hidden bg-white" x-data="{ activeTab: 'corsi' }">
       <header class="hidden md:flex w-full md:pl-[310px] gap-10 py-4 bg-white shrink-0">
           <div>
               <h1 class="text-[23px] font-[900] text-[#2D3154] leading-tight">Ciao, Dr. Luca!</h1>
@@ -145,7 +145,7 @@
           <aside class="hidden md:flex w-[250px] bg-[#0056D2] text-white flex-col p-6 sidebar-radius shrink-0">
               <nav class="flex-1 mt-2">
                   <a href="#" class="block w-full bg-[#1e293b] py-2 rounded-xl text-center font-bold text-[14px] mb-8 shadow-inner">Dashboard</a>
-                  <div class="flex flex-col space-y-[30px] px-2">
+                  <div class="flex flex-col space-y-[40px] px-2">
                       <a href="#" class="flex items-center gap-4 pl-1 font-bold text-[12px]"><svg width="18" height="20" viewBox="0 0 18 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M4 0C2.93913 0 1.92172 0.421427 1.17157 1.17157C0.421427 1.92172 0 2.93913 0 4V16C0 17.0609 0.421427 18.0783 1.17157 18.8284C1.92172 19.5786 2.93913 20 4 20H18V0H4ZM8 3H15V5H8V3ZM2 16C2 15.4696 2.21071 14.9609 2.58579 14.5858C2.96086 14.2107 3.46957 14 4 14H16V18H4C3.46957 18 2.96086 17.7893 2.58579 17.4142C2.21071 17.0391 2 16.5304 2 16Z" fill="white"/>
                       </svg>
@@ -156,23 +156,23 @@
                       </svg>
                       <span>Simulazioni archiviate</span></a>
                       <a href="#" class="flex items-center gap-4 font-bold text-[12px]"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M14 15C14.2833 15 14.5293 14.896 14.738 14.688C14.9467 14.48 15.0507 14.234 15.05 13.95C15.0493 13.666 14.9453 13.4203 14.738 13.213C14.5307 13.0057 14.2847 12.9013 14 12.9C13.7153 12.8987 13.4697 13.003 13.263 13.213C13.0563 13.423 12.952 13.6687 12.95 13.95C12.948 14.2313 13.0523 14.4773 13.263 14.688C13.4737 14.8987 13.7193 15.0027 14 15ZM14 11.8C14.1833 11.8 14.3543 11.7333 14.513 11.6C14.6717 11.4667 14.7673 11.2917 14.8 11.075C14.8333 10.875 14.904 10.6917 15.012 10.525C15.12 10.3583 15.316 10.1333 15.6 9.85C16.1 9.35 16.4333 8.94567 16.6 8.637C16.7667 8.32833 16.85 7.966 16.85 7.55C16.85 6.8 16.5873 6.18733 16.062 5.712C15.5367 5.23667 14.8493 4.99933 14 5C13.45 5 12.95 5.125 12.5 5.375C12.05 5.625 11.6917 5.98333 11.425 6.45C11.325 6.61667 11.3167 6.79167 11.4 6.975C11.4833 7.15833 11.625 7.29167 11.825 7.375C12.0083 7.45833 12.1877 7.46667 12.363 7.4C12.5383 7.33333 12.684 7.21667 12.8 7.05C12.95 6.83333 13.125 6.671 13.325 6.563C13.525 6.455 13.75 6.40067 14 6.4C14.4 6.4 14.725 6.51267 14.975 6.738C15.225 6.96333 15.35 7.26733 15.35 7.65C15.35 7.88333 15.2833 8.10433 15.15 8.313C15.0167 8.52167 14.7833 8.784 14.45 9.1C13.9667 9.51667 13.6583 9.83767 13.525 10.063C13.3917 10.2883 13.3083 10.6173 13.275 11.05C13.2583 11.25 13.321 11.425 13.463 11.575C13.605 11.725 13.784 11.8 14 11.8ZM8 18C7.45 18 6.97933 17.8043 6.588 17.413C6.19667 17.0217 6.00067 16.5507 6 16V4C6 3.45 6.196 2.97933 6.588 2.588C6.98 2.19667 7.45067 2.00067 8 2H20C20.55 2 21.021 2.196 21.413 2.588C21.805 2.98 22.0007 3.45067 22 4V16C22 16.55 21.8043 17.021 21.413 17.413C21.0217 17.805 20.5507 18.0007 20 18H8ZM4 22C3.45 22 2.97933 21.8043 2.588 21.413C2.19667 21.0217 2.00067 20.5507 2 20V7C2 6.71667 2.096 6.47933 2.288 6.288C2.48 6.09667 2.71733 6.00067 3 6C3.28267 5.99933 3.52033 6.09533 3.713 6.288C3.90567 6.48067 4.00133 6.718 4 7V20H17C17.2833 20 17.521 20.096 17.713 20.288C17.905 20.48 18.0007 20.7173 18 21C17.9993 21.2827 17.9033 21.5203 17.712 21.713C17.5207 21.9057 17.2833 22.0013 17 22H4Z" fill="white"/>
-  </svg>
-  <span>Quadernino degli errori</span></a>
+                      <path d="M14 15C14.2833 15 14.5293 14.896 14.738 14.688C14.9467 14.48 15.0507 14.234 15.05 13.95C15.0493 13.666 14.9453 13.4203 14.738 13.213C14.5307 13.0057 14.2847 12.9013 14 12.9C13.7153 12.8987 13.4697 13.003 13.263 13.213C13.0563 13.423 12.952 13.6687 12.95 13.95C12.948 14.2313 13.0523 14.4773 13.263 14.688C13.4737 14.8987 13.7193 15.0027 14 15ZM14 11.8C14.1833 11.8 14.3543 11.7333 14.513 11.6C14.6717 11.4667 14.7673 11.2917 14.8 11.075C14.8333 10.875 14.904 10.6917 15.012 10.525C15.12 10.3583 15.316 10.1333 15.6 9.85C16.1 9.35 16.4333 8.94567 16.6 8.637C16.7667 8.32833 16.85 7.966 16.85 7.55C16.85 6.8 16.5873 6.18733 16.062 5.712C15.5367 5.23667 14.8493 4.99933 14 5C13.45 5 12.95 5.125 12.5 5.375C12.05 5.625 11.6917 5.98333 11.425 6.45C11.325 6.61667 11.3167 6.79167 11.4 6.975C11.4833 7.15833 11.625 7.29167 11.825 7.375C12.0083 7.45833 12.1877 7.46667 12.363 7.4C12.5383 7.33333 12.684 7.21667 12.8 7.05C12.95 6.83333 13.125 6.671 13.325 6.563C13.525 6.455 13.75 6.40067 14 6.4C14.4 6.4 14.725 6.51267 14.975 6.738C15.225 6.96333 15.35 7.26733 15.35 7.65C15.35 7.88333 15.2833 8.10433 15.15 8.313C15.0167 8.52167 14.7833 8.784 14.45 9.1C13.9667 9.51667 13.6583 9.83767 13.525 10.063C13.3917 10.2883 13.3083 10.6173 13.275 11.05C13.2583 11.25 13.321 11.425 13.463 11.575C13.605 11.725 13.784 11.8 14 11.8ZM8 18C7.45 18 6.97933 17.8043 6.588 17.413C6.19667 17.0217 6.00067 16.5507 6 16V4C6 3.45 6.196 2.97933 6.588 2.588C6.98 2.19667 7.45067 2.00067 8 2H20C20.55 2 21.021 2.196 21.413 2.588C21.805 2.98 22.0007 3.45067 22 4V16C22 16.55 21.8043 17.021 21.413 17.413C21.0217 17.805 20.5507 18.0007 20 18H8ZM4 22C3.45 22 2.97933 21.8043 2.588 21.413C2.19667 21.0217 2.00067 20.5507 2 20V7C2 6.71667 2.096 6.47933 2.288 6.288C2.48 6.09667 2.71733 6.00067 3 6C3.28267 5.99933 3.52033 6.09533 3.713 6.288C3.90567 6.48067 4.00133 6.718 4 7V20H17C17.2833 20 17.521 20.096 17.713 20.288C17.905 20.48 18.0007 20.7173 18 21C17.9993 21.2827 17.9033 21.5203 17.712 21.713C17.5207 21.9057 17.2833 22.0013 17 22H4Z" fill="white"/>
+                      </svg>
+                      <span>Quadernino degli errori</span></a>
                       <a href="#" class="flex items-center gap-4 pl-1 font-bold text-[12px]"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M12 1.17188C11.4565 1.17188 10.9219 1.77187 10.9219 2.625C10.9219 3.47813 11.4565 4.07812 12 4.07812C12.5435 4.07812 13.0781 3.47813 13.0781 2.625C13.0781 1.77187 12.5435 1.17188 12 1.17188ZM7.1273 1.31133L6.3727 1.68867C7.08014 3.10359 8.78067 4.35164 10.2253 5.17814L10.8907 13.8281H11.5781V9H12.4219V13.8281H13.1093L13.7747 5.17814C15.2193 4.35164 16.9199 3.10359 17.6273 1.68867L16.8727 1.31133C15.9394 2.71289 14.7684 3.61514 13.5289 4.0193C13.1865 4.56 12.6445 4.92188 12 4.92188C11.3555 4.92188 10.8136 4.56 10.4711 4.01925C9.23156 3.61519 8.06058 2.71289 7.1273 1.31133ZM7.92188 14.6719V19.1719H1.17188V22.8281H22.8281V21.4219H16.0781V14.6719H7.92188Z" fill="white"/>
-  </svg>
-  <span>Simulazione ufficiale</span></a>
+                      <path d="M12 1.17188C11.4565 1.17188 10.9219 1.77187 10.9219 2.625C10.9219 3.47813 11.4565 4.07812 12 4.07812C12.5435 4.07812 13.0781 3.47813 13.0781 2.625C13.0781 1.77187 12.5435 1.17188 12 1.17188ZM7.1273 1.31133L6.3727 1.68867C7.08014 3.10359 8.78067 4.35164 10.2253 5.17814L10.8907 13.8281H11.5781V9H12.4219V13.8281H13.1093L13.7747 5.17814C15.2193 4.35164 16.9199 3.10359 17.6273 1.68867L16.8727 1.31133C15.9394 2.71289 14.7684 3.61514 13.5289 4.0193C13.1865 4.56 12.6445 4.92188 12 4.92188C11.3555 4.92188 10.8136 4.56 10.4711 4.01925C9.23156 3.61519 8.06058 2.71289 7.1273 1.31133ZM7.92188 14.6719V19.1719H1.17188V22.8281H22.8281V21.4219H16.0781V14.6719H7.92188Z" fill="white"/>
+                      </svg>
+                      <span>Simulazione ufficiale</span></a>
                       <a href="#" class="flex items-center gap-4 pl-1 font-bold text-[12px]"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M10 20C15.523 20 20 15.523 20 10C20 4.477 15.523 0 10 0C4.477 0 0 4.477 0 10C0 15.523 4.477 20 10 20ZM16 10C16.0001 11.1868 15.6483 12.347 14.989 13.3338C14.3298 14.3206 13.3926 15.0898 12.2962 15.544C11.1998 15.9981 9.99324 16.117 8.82926 15.8854C7.66528 15.6538 6.59612 15.0823 5.757 14.243L10 10V4C11.5913 4 13.1174 4.63214 14.2426 5.75736C15.3679 6.88258 16 8.4087 16 10Z" fill="white"/>
-  </svg>
-  Le mie statistiche</a>
+                      <path d="M10 20C15.523 20 20 15.523 20 10C20 4.477 15.523 0 10 0C4.477 0 0 4.477 0 10C0 15.523 4.477 20 10 20ZM16 10C16.0001 11.1868 15.6483 12.347 14.989 13.3338C14.3298 14.3206 13.3926 15.0898 12.2962 15.544C11.1998 15.9981 9.99324 16.117 8.82926 15.8854C7.66528 15.6538 6.59612 15.0823 5.757 14.243L10 10V4C11.5913 4 13.1174 4.63214 14.2426 5.75736C15.3679 6.88258 16 8.4087 16 10Z" fill="white"/>
+                      </svg>
+                      Le mie statistiche</a>
                   </div>
-                  <button class="w-full mt-14 bg-white text-[#FF4D4D] px-4 py-2 rounded-full font-black shadow-lg text-left"><i class="fas fa-sign-out-alt rotate-180 text-sm mr-2"></i><span class="text-[12px]">Logout</span></button>
+                  <button class="w-full mt-20 bg-white text-[#FF4D4D] px-4 py-2 rounded-full font-black shadow-lg text-left"><i class="fas fa-sign-out-alt rotate-180 text-sm mr-2"></i><span class="text-[12px]">Logout</span></button>
               </nav>
           </aside>
 
-          <div class="flex-1 flex flex-col px-6 md:px-10 py-10 overflow-hidden -mt-10 md:mt-0 z-10">
+          <div class="flex-1 flex flex-col px-6 md:px-10 pt-10 overflow-hidden -mt-10 md:mt-0 z-10">
               <div class="hidden md:flex w-full h-24 bg-gradient-to-r from-[#D1E9FF] via-[#8BBDF9] to-[#0056D2] rounded-[10px] mb-4 items-center justify-center px-12 shrink-0">
                   <div class="w-full h-7 bg-white/40 rounded-full p-1 relative flex items-center">
                       <div class="h-full bg-[#FCC063]/80 progress-striped rounded-full flex items-center pl-2 relative" style="width: 58%;">
@@ -191,50 +191,50 @@
               <div class="flex-1 flex flex-col md:flex-row gap-6 md:gap-10 w-full overflow-hidden">
                   
                   <div class="flex-[1.5] flex flex-col overflow-hidden">
-      <div class="flex-1 overflow-y-auto pr-16 custom-scrollbar space-y-3 cards-container-height">
-          
-          <div class="bg-[#f3f6f9] p-5 rounded-[13px] border border-gray-100 shrink-0">
-              <h3 class="text-[15px] font-[900] text-[#0088CC] mb-1">Admin logica test 1</h3>
-              <p class="text-[8px] text-gray-400 font-bold leading-tight">
-                  Lorem ipsum is simply dummy text of the printing and typesetting industry.
-              </p>
-          </div>
+                    <div class="flex-1 overflow-y-auto pr-16 custom-scrollbar space-y-3 cards-container-height">
+                        
+                        <div class="bg-[#f3f6f9] p-5 rounded-[13px] border border-gray-100 shrink-0">
+                            <h3 class="text-[15px] font-[900] text-[#0088CC] mb-1">Admin logica test 1</h3>
+                            <p class="text-[8px] text-gray-400 font-bold leading-tight">
+                                Lorem ipsum is simply dummy text of the printing and typesetting industry.
+                            </p>
+                        </div>
 
-          <div class="bg-[#f3f6f9] p-5 rounded-[13px] border border-gray-100 shrink-0">
-              <h3 class="text-[15px] font-[900] text-[#0088CC] mb-1">Admin logica test 2</h3>
-              <p class="text-[8px] text-gray-400 font-bold leading-tight">
-                  Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
-              </p>
-          </div>
+                        <div class="bg-[#f3f6f9] p-5 rounded-[13px] border border-gray-100 shrink-0">
+                            <h3 class="text-[15px] font-[900] text-[#0088CC] mb-1">Admin logica test 2</h3>
+                            <p class="text-[8px] text-gray-400 font-bold leading-tight">
+                                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+                            </p>
+                        </div>
 
-          <div class="bg-[#f3f6f9] p-5 rounded-[13px] border border-gray-100 shrink-0">
-              <h3 class="text-[15px] font-[900] text-[#0088CC] mb-1">Admin logica test 3</h3>
-              <p class="text-[8px] text-gray-400 font-bold leading-tight">
-                  Standard dummy text ever since the 1500s.
-              </p>
-          </div>
+                        <div class="bg-[#f3f6f9] p-5 rounded-[13px] border border-gray-100 shrink-0">
+                            <h3 class="text-[15px] font-[900] text-[#0088CC] mb-1">Admin logica test 3</h3>
+                            <p class="text-[8px] text-gray-400 font-bold leading-tight">
+                                Standard dummy text ever since the 1500s.
+                            </p>
+                        </div>
 
-          <div class="bg-[#f3f6f9] p-5 rounded-[13px] border border-gray-100 shrink-0">
-              <h3 class="text-[15px] font-[900] text-[#0088CC] mb-1">Admin logica test 4</h3>
-              <p class="text-[8px] text-gray-400 font-bold leading-tight">
-                  Lorem ipsum is simply dummy text.
-              </p>
-          </div>
+                        <div class="bg-[#f3f6f9] p-5 rounded-[13px] border border-gray-100 shrink-0">
+                            <h3 class="text-[15px] font-[900] text-[#0088CC] mb-1">Admin logica test 4</h3>
+                            <p class="text-[8px] text-gray-400 font-bold leading-tight">
+                                Lorem ipsum is simply dummy text.
+                            </p>
+                        </div>
 
-          <div class="bg-[#f3f6f9] p-5 rounded-[13px] border border-gray-100 shrink-0">
-              <h3 class="text-[15px] font-[900] text-[#0088CC] mb-1">Admin logica test 5</h3>
-              <p class="text-[8px] text-gray-400 font-bold leading-tight">
-                  This card is now accessible by scrolling down.
-              </p>
-          </div>
+                        <div class="bg-[#f3f6f9] p-5 rounded-[13px] border border-gray-100 shrink-0">
+                            <h3 class="text-[15px] font-[900] text-[#0088CC] mb-1">Admin logica test 5</h3>
+                            <p class="text-[8px] text-gray-400 font-bold leading-tight">
+                                This card is now accessible by scrolling down.
+                            </p>
+                        </div>
 
-          <div class="bg-[#f3f6f9] p-5 rounded-[13px] border border-gray-100 shrink-0">
-              <h3 class="text-[15px] font-[900] text-[#0088CC] mb-1">Admin logica test 6</h3>
-              <p class="text-[8px] text-gray-400 font-bold leading-tight">
-                  Keep scrolling to see more content.
-              </p>
-          </div>
-      </div>
+                        <div class="bg-[#f3f6f9] p-5 rounded-[13px] border border-gray-100 shrink-0">
+                            <h3 class="text-[15px] font-[900] text-[#0088CC] mb-1">Admin logica test 6</h3>
+                            <p class="text-[8px] text-gray-400 font-bold leading-tight">
+                                Keep scrolling to see more content.
+                            </p>
+                        </div>
+                    </div>
                   </div>
                 
 
